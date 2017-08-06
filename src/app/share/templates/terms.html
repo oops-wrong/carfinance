@@ -1,0 +1,240 @@
+<div class="container-fluid fs">
+  <div class="fs__bg" style="background-image: url(/assets/images/bg-1.png);"></div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8 fs-text pb-4 pt-4">
+        <h1>Exclusive Low Rates on Car Finance</h1>
+        <p>Get access the UK’s best vehicle finance providers offering hundreds of different loan products to suit your specific
+          circumstances
+        </p>
+        <ul>
+          <li>Buy Any New or Used Vehicles</li>
+          <li>Get Your Decisions in Minutes</li>
+          <li>All Credit History Considered</li>
+        </ul>
+        <a ui-sref="main.form" class="btn btn-big btn-blue btn-arrow text-uppercase">Apply now</a>
+      </div>
+      <div class="col-lg-4">
+        <div class="fs__mini-form mini-form">
+          <div class="mini-form__header container">
+            <div class="row h-100">
+              <div class="col d-flex justify-content-center align-items-center">
+                <span>Get Your Quote</span>
+              </div>
+            </div>
+          </div>
+          <div class="mini-form__body container">
+            <div class="row h-100 pb-4 pt-2">
+              <div class="col d-flex flex-column justify-content-between">
+                <div class="mini-form__item">
+                  <div class="mini-form__label">I want to finance a:</div>
+                  <div class="finance-select d-flex justify-content-between">
+                    <div class="finance-select__btn check-btn">
+                      <input type="radio" id="finance1" name="finance" value="{{faceVM.FVehicleType.CAR}}" ng-model="faceVM.miniForm.vehicle_type">
+                      <label for="finance1">
+                        <i class="finance-select__ico ico ico-car"></i>
+                        <span>Car</span>
+                      </label>
+                    </div>
+                    <div class="finance-select__btn check-btn">
+                      <input type="radio" id="finance2" name="finance" value="{{faceVM.FVehicleType.VAN}}" ng-model="faceVM.miniForm.vehicle_type">
+                      <label for="finance2">
+                        <i class="finance-select__ico ico ico-van"></i>
+                        <span>Van</span>
+                      </label>
+                    </div>
+                    <div class="finance-select__btn check-btn">
+                      <input type="radio" id="finance3" name="finance" value="{{faceVM.FVehicleType.MOTORBIKE}}" ng-model="faceVM.miniForm.vehicle_type">
+                      <label for="finance3">
+                        <i class="finance-select__ico ico ico-bike"></i>
+                        <span>Bike</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="mini-form__item">
+                  <label class="mini-form__label" for="mini-form-amount">Amount to borrow:</label>
+                  <div class="colored-form-group mb-2">
+                    <blank-button-number class="d-flex hidden-xs-down" icon="fa fa-minus" max="250000" min="500" model="faceVM.miniForm.product_amount"
+                      step="-500"></blank-button-number>
+                    <i class="fa fa-gbp ico-pound c-dark-blue colored-form-group__ico" aria-hidden="true"></i>
+                    <div class="colored-form-group__input w-100">
+                      <input type="text" class="form-control form-control-light h-100" id="mini-form-amount" ng-model="faceVM.miniForm.product_amount">
+                    </div>
+                    <blank-button-number class="d-flex hidden-xs-down" icon="fa fa-plus" max="250000" min="500" model="faceVM.miniForm.product_amount"
+                      step="500"></blank-button-number>
+                  </div>
+                  <div class="form-group">
+                    <input type="range" class="form-control form-slider" min="500" max="250000" step="500" ng-model="faceVM.miniForm.product_amount">
+                  </div>
+                </div>
+
+                <div class="mini-form__item">
+                  <label class="mini-form__label">To pay back over:</label>
+                  <div class="colored-form-group justify-content-between">
+                    <blank-button-number class="d-flex" icon="fa fa-minus" max="7" min="1" model="faceVM.miniForm.product_term" step="-1"></blank-button-number>
+                    <span class="colored-form-group__header">{{faceVM.miniForm.product_term}} year<span ng-if="faceVM.miniForm.product_term != 1">s</span></span>
+                    <blank-button-number class="d-flex" icon="fa fa-plus" max="7" min="1" model="faceVM.miniForm.product_term" step="1"></blank-button-number>
+                  </div>
+                </div>
+                <button class="btn btn-orange btn-arrow btn-rounder btn-double d-block mx-auto" ng-click="faceVM.miniFormSubmit()">Calculate my loan</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- .fs -->
+<div class="statistic-list">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="statistic-list__item">
+          <div class="h1">£30m+</div>
+          <span>Loans requested each month</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="statistic-list__item">
+          <div class="h1">4,000</div>
+          <span>Applications processed each month</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="statistic-list__item">
+          <div class="h1">100s</div>
+          <span>Of lenders available</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="terms" class="stages">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="stages-header">
+          <div class="h1">
+            Terms and Conditions & Privacy Policy
+          </div>
+          <div style="text-align:left">
+            <p><span style="color: #000000;">The terms and conditions set out below govern the use of our website, www.quotemecarfinance.com (the “Website”). Please read these terms carefully and make sure you understand them before you start using our Website. By using this Website you agree to accept these terms and conditions.</span></p>
+            <p><span style="color: #000000;">You must not use this website if you do not agree to the terms and conditions, are under 18 or are a non-UK resident.</span></p>
+            <p><span style="color: #000000;">The customer consents to Boost and their selected partners contacting them regarding third party products such as credit reports, GAP Insurance, Warranties and alternative vehicle financing solutions.</span></p>
+            <p><span style="color: #000000;">By agreeing to these Terms when you submit your details to us, you are giving your consent for your information to be used by quotemecarfinance.com and carefully selected third parties with whom your information will be shared for administrative, underwriting, marketing and revenue purposes in accordance with our Privacy Policy.</span></p>
+            <p><span style="color: #000000;">You may opt out at any time by clicking <span style="color: #ff6600;"><a style="color: #ff6600;" href="http://www.optout-pdwq.net/o-pdwq-n15-3df8e79f6fe16d9f69a7914c65851cbb">here</a></span></span></p>
+            <p><span style="color: #000000;">Quotemecarfinance.com is owned and operated by Boost Finance Ltd (“we”, “us” and “our”). We are a limited company registered in England and Wales with number.</span></p>
+            <p><span style="color: #000000;">The intention of our Website is to refer you to a range of product provider(s) to which we have access that may be available assist you in arranging car financing. It is possible you may find a better quote elsewhere even though we seek to ensure the information on our website provides you with the best value offering. Whilst we provide you with a general and brief description of the products available via our website, we do not offer tailored advice about those products and how suitable they may be for your needs. If you require specialist advice, then this website is not suitable for you and you should seek independent professional advice.</span></p>
+            <p><span style="color: #000000;">Nothing on this website is or can be deemed to constitute financial, investment or other advice, not a recommendation or endorsement of a product or service by us. The material provided on the website is for general information purposes only and should not be relied upon. It is your sole responsibility to ensure the suitability, adequacy and appropriateness of a product or service that interests you on our website to your needs. As such you should consider seeking independent professional advice before obtaining any products or services via our website.</span></p>
+            <p><span style="color: #000000;">Our service allows you to be introduced to a broker who may be able to help you with your enquiry. Our service is free for you to use, however we receive commission and fees from brokers and service providers who we refer you to.</span></p>
+            <p><span style="color: #000000;">We will always try to provide you with fast uninterrupted access to our website, but may terminate, suspend or restrict access to our website at any time for security or legal reasons as well as any other reasons we determine.</span></p>
+            <p><span style="color: #000000;">We make every effort to ensure the content available to you on our website is accurate and up to date at all times, and make changes to our website on a daily basis. As such we are unable to notify you of changes to our website.</span></p>
+            <p><span style="color: #000000;">We may change these terms and conditions from time to time. You will need to agree to the latest terms and conditions every time you visit the website. You should check this document on each visit you make to our website. It is important to do this as if you keep using our website we will assume your agreement to any changes we have made to our terms and conditions. These terms and conditions were last updated on the 20th March 2016.</span></p>
+            <p><span style="color: #000000;">Our aim is to always provide you with an excellent service. However if you are unhappy with our service please contact us.</span></p>
+            <p><span style="color: #000000;">If you are unhappy with any product or service that you have been introduced to through our website, we recommend that you approach the provider of that product or service directly. If you require any provider’s contact details, please contact us and we will be happy to assist.</span></p>
+            <p><span style="color: #000000;">e-mail: info@quotemecarfinance.com</span></p>
+            <p><span style="color: #000000;"><strong>Our Liability</strong></span></p>
+            <p><span style="color: #000000;">THIS SECTION IS VERY IMPORTANT BECAUSE IT SETS OUT YOUR RESPONSIBILITIES AND OUR LIABILITY TO YOU.</span></p>
+            <p><span style="color: #000000;">You are solely responsible for ensuring that all the information you provide is correct, complete, accurate and not misleading and that you disclose all relevant facts required. We are not responsible or liable for any loss or damage you may suffer or incur in connection with your failure to ensure such information is correct and not misleading.</span></p>
+            <p><span style="color: #000000;">You are responsible for ensuring that any third party that you wish to contact has all the important information about you.</span></p>
+            <p><span style="color: #000000;">It is very important to ensure that the information held by the third part is correct, complete and not misleading and you have disclosed all the relevant facts. It’s your responsibility to identify any mistakes or errors in the information, content, material or data helped about you before you obtain any product or service from the third party. Failure to do so could invalidate the product or service provided by the third party. We are not responsible or liable for any loss or damage suffered as a result of your failure to ensure such information is correct and not misleading.</span></p>
+            <p><span style="color: #000000;">You are responsible for ensuring that you understand and agree with the terms and conditions of the third party that will be providing the product or service to you.</span></p>
+            <p><span style="color: #000000;">Through our website, you can apply for a number of products and services. These products and services are all provided by third parties and not us. If you apply for an obtain a product and service, you will be contracting with a third party that will supply that product or service to you on their own terms and conditions. It is your responsibility to understand and agree with the terms and conditions which relate to the specific product or service you are interested in before you enter into that contract. We are not responsible or liable to you for any loss or damage you may suffer or incur in connection with any contract entered into by you with any third party in relation to any product or service.</span></p>
+            <p><span style="color: #000000;">You are responsible for making your own enquiries to check that the product or service that you want to apply for is accurate, complete and up-to-date and meets your needs.</span></p>
+            <p><span style="color: #000000;">Our website contains information and descriptions about the products and services you may apply for. This information does not provide a complete description of all the features, terms, conditions, or information regarding those products. Much of this information is provided by third party product or service providers. We do not verify or endorse the information and it may be inaccurate, incomplete or out of date. Although we reasonably endeavour to ensure the information on our website is reliable and try to correct any errors and omissions as soon as possible, it is your responsibility to ensure that such information is accurate. We are not responsible or liable to you for any loss or damage you may suffer or incur in connection with, the details we provide on our website with respect to any product or service provided by third parties which you did not check individually and/or do not meet your needs for any reason.</span></p>
+            <p><span style="color: #000000;">You are responsible for ensuring that you have appropriate virus checking software on your computer.</span></p>
+            <p><span style="color: #000000;">We cannot guarantee that our website is uncorrupted or free from viruses which may harm your computer and are not responsible or liable to you for any loss or damage you may suffer in this regard where caused by any third party.</span></p>
+            <p><span style="color: #000000;">We do not seek to exclude or limit any liability that cannot be limited or excluded under any applicable law. This includes our liability for things such as fraud, death or personal injury caused by negligence.</span></p>
+            <p><span style="color: #000000;">We shall not be liable to you for any loss of income, revenue, business, profits or contract, anticipated savings, data, goodwill or opportunity, direct, indirect or consequential loss or damage incurred by you in connection with any access, use, or inability to access or use our website where:</span></p>
+            <p><span style="color: #000000;">You have not complied with any part of these terms and conditions.</span><br />
+            <span style="color: #000000;">We are not in breach of a legal duty of care owed to you by us or by any of our employees or agents, or</span><br />
+            <span style="color: #000000;">the loss or damage you suffered by our breach of these terms and conditions was not reasonably foreseeable, or</span><br />
+            <span style="color: #000000;">the damage or loss was caused by events outside our control; or</span><br />
+            <span style="color: #000000;">to the extent that you have contributed to your loss or damage by failing to act reasonably in the circumstances or by failing to take reasonable steps to mitigate your loss or damage.</span><br />
+            <span style="color: #000000;">Your Liability</span></p>
+            <p><span style="color: #000000;">If you use our website, it is reasonable for us to expect that you will adhere to our terms and conditions. If we think you have breached any of the terms and conditions we may take appropriate measures to terminate and/or suspend your access to our website.</span></p>
+            <p><span style="color: #000000;">If your use of our website causes us to suffer any loss or damage, you shall be responsible for reimbursing us for any such loss or damage that we may suffer.</span></p>
+            <p><span style="color: #000000;"><strong>Additional Terms &amp; Conditions</strong></span></p>
+            <p><span style="color: #000000;">Additional terms and conditions apply to special offers such as cash back promotions and vouchers. These additional terms and conditions will be made available to you at the time any such offer is made.</span></p>
+            <p><span style="color: #000000;">Any failure on our part to enforce any right will not constitute a waiver of such rights.</span></p>
+            <p><span style="color: #000000;">These terms and conditions replace any previous terms and conditions regarding the use of our website.</span></p>
+            <p><span style="color: #000000;">These terms and conditions are subject to English law and the exclusive jurisdiction of the English courts.</span></p>
+            <p><span style="color: #000000;">If you have any questions about these terms and conditions or have a general query about the services that we provide, please get in touch.</span></p>
+            <p><span style="color: #000000;">Data is collected, processed and maintained in accordance with the Data Protection Act 1998. Registration Number: ZA118367.</span></p>
+            <p>&nbsp;</p>
+            <p><span style="color: #000000;"><strong>Privacy Policy</strong></span></p>
+            <p><span style="color: #000000;">This Privacy Policy explains how we use the information we collect about you, how you can instruct us to limit the use of that information and the procedures we have put in place to safeguard your privacy.</span></p>
+            <p><span style="color: #000000;"><strong>Who we are</strong></span></p>
+            <p><span style="color: #000000;">This website is owned and operated by Boost Finance Ltd (Company Number 09244571).</span></p>
+            <p><span style="color: #000000;"><strong>The information we collect</strong></span></p>
+            <p><span style="color: #000000;">The information below provides an overview of how we protect your privacy whenever you are on this site. Personal information on the qoutemecarfinance.com website may be gathered in two ways as follows:</span></p>
+            <ul>
+            <li><span style="color: #000000;">indirectly (for example, through cookies &#8211; see section &#8220;Our Use of Cookies&#8221;); and/or</span></li>
+            <li><span style="color: #000000;">directly (for example, when you provide information on various response forms).</span></li>
+            </ul>
+            <p><span style="color: #000000;">This information includes your internet address so that we can track unique visits to our site for analytic purposes.</span></p>
+            <p><span style="color: #000000;">We collect information when you choose to submit it to us. Throughout our site, we provide opportunities for you to apply for various products and services, for example car data checks and car finance. When we collect this type of information, we will notify you of the reason we are asking for information and how this information will be used. It is completely up to you whether or not you want to provide it.</span></p>
+            <p><span style="color: #000000;">Third party providers featured on or linked to our website may collect information. We have no control over this.</span></p>
+            <p><span style="color: #000000;"><strong>How we use the information</strong></span></p>
+            <p><span style="color: #000000;">We gather your information to allow our partners to consider and process your application and enable a third party lender (from the carefully selected panel of lenders) to provide you with a suitable car finance product or service tailored to your circumstances. The relevant information is also used by our partners and shared with their agents, third party lenders and sub-contractors to deal with your enquiries, process your transaction and communicate with you on any matter relating to the provision of products or services or in general.</span></p>
+            <p><span style="color: #000000;">We may use aggregate information and statistics for the purpose of monitoring website usage in order to help us develop the website and our services and may provide such aggregate information to third parties such as advertisers to enable them to assess the value of advertising on our website. The statistics will not include information that can be used to identify any individual.</span></p>
+            <p><span style="color: #000000;">We may also wish to:</span></p>
+            <ul>
+            <li><span style="color: #000000;">contact you by mail, telephone, fax or email to provide you with offers of products, services or information that may be of interest to you;</span></li>
+            <li><span style="color: #000000;">provide you with information about special features on our website or any other service or product we think may be of interest to you;</span></li>
+            <li><span style="color: #000000;">provide you with related information from third parties we think may be of interest to you; and</span></li>
+            <li><span style="color: #000000;">provide your information to carefully selected third parties whose products or services we believe may be of interest to you for example, financial institutions and car dealerships.</span></li>
+            </ul>
+            <p><span style="color: #000000;">We will usually inform you (before collecting your data) if we intend to use your data for such purposes or if we intend to disclose your information to any third party for such purposes. Where you have submitted your information to us and consented to receive third party marketing material relating to offers from selected third parties, we will pass your contact information only to such third parties. If you have consented to receive such material or for us to use your information in this way, you are entitled to unsubscribe at any time by sending us an email to: <a style="color: #000000;" href="mailto:info@quotemcarfinance.com">info@quotemcarfinance.com</a> or you can unsubscribe from email offers by removing yourself from the list by clicking <a style="color: #000000;" href="http://www.optout-pdwq.net/o-pdwq-n15-3df8e79f6fe16d9f69a7914c65851cbb">here</a></span></p>
+            <p><span style="color: #000000;"><strong>Your information shared</strong></span></p>
+            <p><span style="color: #000000;">Information about our customers is an important part of our business and we take appropriate measure to ensure that this is kept secure. By making an application through our website and submitting your personal details this will, however, be taken as your consent for us process and to share your information in the following ways:</span></p>
+            <p><span style="color: #000000;"><strong>Businesses we do not control</strong></span></p>
+            <p><span style="color: #000000;">Our website features the products and services of third party providers. Where a service is to be provided by a third party, for example our motor loan, warranties, insurance, car data check and value of your car, your information will be shared with that third party for purposes of delivering that service to you. You will be able to tell when a third party is involved in your transactions and when your customer information is shared before you submit any information, you will be notified and then it is up to you whether or not you want to provide it. Where you purchase products or services or provide information or access another website through our website, use of any information collected is subject to the privacy policy of the operator of the site you’re visiting or the provider of such products or services. We are not responsible for the data protection practices of those other sites. This privacy policy applies solely to information collected on this website. We encourage our users to read the privacy policies of each and every website that collects personally identifiable information. That privacy policy may differ from ours. If you cannot find the privacy policy and require more information, please contact the provider directly.</span></p>
+            <p><span style="color: #000000;"><strong>Sale of Business</strong></span></p>
+            <p><span style="color: #000000;">If the business is sold or integrated with another business, your details may be disclosed to our advisers and any prospective purchasers and their advisers and will be passed on to the new owners of the business.</span></p>
+            <p><span style="color: #000000;"><strong>Credit Reference Agencies</strong></span></p>
+            <p><span style="color: #000000;">When you make an application with us, our selected partners may carry out a search with credit reference agencies (Affinion, Equifax and/or Experian) for the purpose of assessing your credit score in connection with your application for finance. They will only do a soft search of your details which is not visible to other lenders so even if you are declined at this stage it won&#8217;t be reflected on your credit file. Credit reference agencies will provide a credit scoring computation and if, based on this score our partners can proceed with your application, they will pass your information onto a number of suitable lenders (two on average) who will carry out a hard search on your credit file.</span></p>
+            <p><span style="color: #000000;">Credit reference agencies hold public and credit account information about you including details from the electoral register, country court judgments, bankruptcies, individual voluntary arrangements, administration orders and other data on how you are managing existing credit agreements. Carrying out hard searches will enable the lenders to calculate the level of risk of providing credit to each applicant based on the information obtained. Such searches will be recorded on your credit file leaving a footprint and this allows other lenders and organisations to see when and how many times your credit information has been accessed.</span></p>
+            <p><span style="color: #000000;">To verify your identity, prevent crime and assist in the recovery of debt, we may exchange information from time to time with Fraud Prevention Agencies (including CIFAS), Debt Recovery Agencies, and other relevant organisations including other lenders.</span></p>
+            <p><span style="color: #000000;"><strong>Others</strong></span></p>
+            <p><span style="color: #000000;">We may share your information where it is necessary to identify, contact or bring legal action against someone who may be causing injury to or interference with (either intentionally or unintentionally) our rights or property, other users, or anyone else who could be harmed by such activities. We also reserve the right to disclose user information when we believe in good faith that the law requires it.</span></p>
+            <p><span style="color: #000000;"><strong>Our use of Cookies</strong></span></p>
+            <p><span style="color: #000000;">Cookies are small text files based on your hard drive each time you access a website. We may use cookies to facilitate your internet sessions, to maintain security and to improve our websites.</span></p>
+            <p><span style="color: #000000;">In particular we use Google Analytics’ cookies to measure use of and improve our website and support advertising features as detailed below.</span></p>
+            <p><span style="color: #000000;">You can disable cookies on your computer by changing the settings in preferences or options in your menu browser. However, if you select this setting, you may be unable to access certain parts of our site. Unless you have adjusted your browser setting so that it will refuse cookies, our system will issue cookies when you log on to our site and by continuing to use our site you consent to the use of cookies.</span></p>
+            <p><span style="color: #000000;">Please refer to our Cookie Policy for further information on the types of cookies we use.</span></p>
+            <p><span style="color: #000000;"><strong>About Google Analytics Advertising Features</strong></span></p>
+            <p><span style="color: #000000;">This website implements and uses Google Analytics Advertising Features which includes the following:</span></p>
+            <ul>
+            <li><span style="color: #000000;">Remarketing with Google Analytics;</span></li>
+            <li><span style="color: #000000;">Google Display Network Impression Reporting;</span></li>
+            <li><span style="color: #000000;">DoubleClick Platform integrations;</span></li>
+            <li><span style="color: #000000;">Google Analytics Demographics and Interest Reporting.</span></li>
+            </ul>
+            <p><span style="color: #000000;">Third party vendors, including Google, show our ads on sites across the internet. We and third-party vendors, including Google, use first-party cookies (such as the Google Analytics cookie) and third-party cookies (such as the DoubleClick cookie) together to inform, optimize and serve ads based on someone’s past visits to our website. These cookies are used to collect data about the websites and individual pages that users visit and are typically used to deliver advertisements that are more relevant to you and your interests, and to help measure the effectiveness of an advertising campaign. For further details of these cookies please refer to our Cookie Policy.</span></p>
+            <p><span style="color: #000000;">You can find out more information about how Google uses you data by reading Google’s privacy policy located: at www.google.com/policies/privacy/partners.</span></p>
+            <p><span style="color: #000000;">You can opt-out or customise the use of Google Analytics Advertising Features via Ads Settings found at: www.google.com/settings/ads. This lets you opt out of ads shown to you based on factors such as your interests, previous visits to other websites, and demographic details on your computer’s browser. You can also prevent your data from being used by Google Analytics by downloading the Google Analytics’ Opt-out Browser Add-on, which can be found at: https://tools.google.com/dlpage/gaoptout.</span></p>
+            <p><span style="color: #000000;">We will not facilitate the merging of personally-identifiable information with non-personally identifiable information collected through any Google adverting product or feature without your prior affirmative consent.</span></p>
+            <p><span style="color: #000000;"><strong>How we protect your information</strong></span></p>
+            <p><span style="color: #000000;">All data that you submit is stored in secure servers. The internet is not a secure medium. We take appropriate steps to maintain the security of your personal data. The open nature of the Internet is such that data may flow over networks without security measures and may be accessed and used by people other than those for whom the data is intended. However, we aim to apply appropriate levels of security at all times.</span></p>
+            <p><span style="color: #000000;"><strong>How can you access your information?</strong></span></p>
+            <p><span style="color: #000000;">You are entitled to know whether we hold information about you and, if we do, you are entitled to have access to that information and require it to be corrected if it is inaccurate. You can do this by contacting us by e-mail at info@quotemecarfinance.com. Any access request may be subject to a fee of £10 to meet our costs in providing you with details of the information we hold about you.</span></p>
+            <p><span style="color: #000000;"><strong>Your consent</strong></span></p>
+            <p><span style="color: #000000;">By submitting your information, you consent to the use of that information as set out in this policy. If we change our privacy policy we will post the changes on this page, and may place notices on other pages of the website so that you may be aware of the information we collect and how to use it at all times. We will also e-mail you should we make any changes so that you may consent to our use of your information in that way. Continued use of this service will signify that you agree to any such changes.</span></p>
+            <p><span style="color: #000000;"><strong>How to contact us</strong></span></p>
+            <p><span style="color: #000000;">We welcome your views about our website and our privacy policy. If you would like to contact us with any queries or comments, please send an e-mail to info@quotemecarfinance.com</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row row-with-apply">
+      <div class="col-lg-12">
+        <a ui-sref="main.form" class="btn btn-orange btn-arrow btn-rounder">Apply Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

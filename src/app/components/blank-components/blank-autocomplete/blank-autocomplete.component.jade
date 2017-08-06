@@ -1,0 +1,41 @@
+.form-group(
+    ng-class="{'has-error': autoVM.hasError, 'group-on-focus': autoVM.isFocusedOn, 'group-with-pop': autoVM.isFocusedOn && autoVM.isOpenPop}"
+)
+    .row
+        .col-md-4
+            label.control-label(
+                for="{{::autoVM.name}}"
+                ng-bind="autoVM.label"
+                ng-class="{'required-label': autoVM.required}"
+            )
+        .col-md-4
+            input.form-control(
+                details="autoVM.details"
+                id="{{::autoVM.name}}"
+                name="{{::autoVM.name}}"
+                ng-autocomplete,
+                ng-blur="autoVM.changeOnFocus()"
+                ng-class="{'border-blue-color': autoVM.isOpenPop}"
+                ng-disabled="autoVM.disabled"
+                ng-focus="autoVM.changeOnFocus()"
+                ng-model="autoVM.model"
+                ng-required="autoVM.required"
+                options="{country: autoVM.country}"
+                type="text"
+            )
+    .icon-with-popover(ng-if='!autoVM.hasError')
+        .icon(
+            ng-class="{'icon-info': autoVM.info.length > 1}"
+            ng-click="autoVM.changeIsOpenPop()"
+            ng-if="autoVM.info.length > 1"
+        )
+        p(
+            ng-bind="autoVM.info"
+            ng-if="autoVM.info.length > 1 && autoVM.isOpenPop"
+        )
+    validation-alert(
+        field="autoVM.field"
+        form="autoVM.form"
+        has-error="autoVM.hasError"
+        label="autoVM.label"
+    )

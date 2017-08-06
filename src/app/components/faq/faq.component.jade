@@ -1,0 +1,22 @@
+.card
+    .card-header(
+        id="{{::faqVM.headingId}}"
+        role="tab"
+    )
+        h5.mb-0.text-left
+            a.faq-link(
+                aria-controls="{{::faqVM.collapseId}}"
+                aria-expanded="false"
+                data-parent="{{::faqVM.parentNode}}"
+                data-target="{{'#' + faqVM.collapseId}}"
+                data-toggle="collapse"
+                ng-bind-html="::faqVM.question"
+            )
+    .collapse(
+        aria-labelledby="{{::faqVM.headingId}}"
+        id="{{::faqVM.collapseId}}"
+        role="tabpanel"
+    )
+        .card-block.text-left
+            a.btn.btn-orange.btn-arrow.btn-rounder.float-right.mb-4.ml-3(ui-sref="main.form") Apply Now
+            div(ng-bind-html="::faqVM.answer")

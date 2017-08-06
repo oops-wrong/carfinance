@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "quotemark": [true, "single", "avoid-escape"
+    ],
+    "variable-name": [true, "ban-keywords"],
+    "no-duplicate-variable": true,
+    "semicolon": true,
+    "indent": [true, "spaces"],
+    "no-console": [false, "log"],
+    "eofline": true
+  }
+}

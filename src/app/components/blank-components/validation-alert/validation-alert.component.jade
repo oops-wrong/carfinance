@@ -1,0 +1,22 @@
+//code {{validationVM.field | json}}
+div.validation-alert.has-error(
+    ng-if="validationVM.hasError || validationVM.hasError === undefined || validationVM.form.$submitted"
+    ng-repeat="(error, errorValue) in validationVM.field.$error"
+)
+    .icon-with-popover
+        .icon.icon-alert
+        p.error-message(ng-switch="error")
+            span(ng-switch-when="email")
+                | Invalid email.
+            span(ng-switch-when="max")
+                | More than maximum value ({{::validationVM.max}}).
+            span(ng-switch-when="min")
+                | Less than minimum value ({{::validationVM.min}}).
+            span(ng-switch-when="pattern")
+                | Invalid {{::validationVM.patternName}}.
+            span(ng-switch-when="required")
+                | Please complete this section.
+            span(ng-switch-when="zero")
+                | Invalid time range.
+            span(ng-switch-default)
+                | Something wrong here.

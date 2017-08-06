@@ -1,0 +1,84 @@
+.container-fluid.fs
+    .fs__bg(style="background-image: url(/assets/images/bg-form.png);")
+    .container
+        .row.align-items-center
+            .col.fs-text.fs-text--page.pb-4.pt-4
+                h1 We Have Received Your Details
+                ul
+                    li One of our partners will be in touch shortly...
+
+.thanks-message
+    .container.grey-overlay(ng-class="{'grey-overlay--disable': congVM.isDelayed}")
+        .loader(ng-hide="congVM.isDelayed") Loading...
+        .dotted.hidden-lg-down
+        .row(ng-hide="congVM.isDelayed")
+            .col-lg-1.col-sm-2
+                .complete-point
+                    i
+            .col-lg-9.col-sm-10
+                .thanks-message__text-block.tb1
+                    h3
+                        b Just a minute
+                        |  ...Looking for Lenders
+                    p We are just checking deals based on your circumstances
+                .thanks-message__text-block.tb2
+                    p
+                        | You will be redirected to a lender as soon as we have found something appropriate
+        .row(ng-show="congVM.isDelayed")
+            .col-lg-1.col-sm-2
+                .complete-point
+                    i
+            .col-lg-9.col-sm-10
+                .thanks-message__text-block.tb1
+                    h3
+                        b Thank you
+                        |  for your application.
+                    p Your details have been submitted successfully.
+                .thanks-message__text-block.tb2
+                    p
+                        | One of our car finance partners are processing your details and shortlisting your options based on the information you have given us.
+                    p
+                        | Should any further information be required, one of our specialists will call you shortly to discuss with you further.
+        .row(ng-show="congVM.isDelayed")
+            .col-lg-1.col-sm-2
+                .complete-point
+                    i
+            .col-lg-9.col-sm-10
+                p
+                iframe(width="100%" height="500" src="https://secure.uk.rspcdn.com/xprr/red/PID/1300/SID/http://gateway.tmlsecure.com/aff_c?offer_id=64&aff_id=1077&url_id=30&file_id=908" style="border:0;margin:auto;")
+        .row
+            .col-lg-1.col-sm-2.text-center
+                i.fa.fa-info-circle.fa-3x.thanks-message__info-btn(aria-hidden="true")
+            .col-lg-9.col-sm-10
+                p
+                    | While you are waiting, we recommended checking your credit score. The more you know and understand about your credit score and report, the better you can improve how lenders view you. This could help you get a lower rate when applying for a loan or finance in the future.
+.stages.stages--form
+    .container
+        .row.stages-list
+            .col-lg-4.col-md-4
+                .stages-list__step
+                    .stages-list__step-header
+                        div
+                            img(src="/assets/images/ico-tap.png" width="45" height="60")
+                        div
+                            h3 Apply Online
+                            h3 Step 1
+            .col-lg-4.col-md-4
+                .stages-list__step
+                    .stages-list__step-header
+                        div
+                            img(src="/assets/images/ico-speedometer.png" width="60" height="60")
+                        div
+                            h3 Buy any Car
+                            h3 Step 2
+            .col-lg-4.col-md-4.stages-list__last-step
+                .stages-list__step
+                    .stages-list__step-header
+                        div
+                            img(src="/assets/images/ico-key.png" width="45" height="60")
+                        div
+                            h3 Sign & Collect
+                            h3 Step 3
+                            
+                            img(src="http://gateway.tmlsecure.com/aff_l?offer_id=43" width="1" height="1")
+                            img(src="https://sp.analytics.yahoo.com/spp.pl?a=10000&.yp=10030856" width="1" height="1")

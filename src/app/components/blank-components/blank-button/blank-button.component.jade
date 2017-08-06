@@ -1,0 +1,19 @@
+button(
+    class="btn {{buttonVM.extraClass}}"
+    ng-disabled="buttonVM.loading || buttonVM.disabled"
+    type="{{::buttonVM.type}}"
+)
+    span(ng-show="!buttonVM.loading")
+        | {{::buttonVM.label}}
+        i(
+            class="button-ico {{::buttonVM.icon}}"
+            ng-if="buttonVM.icon"
+        )
+
+    span(ng-show="buttonVM.loading")
+        i.fa.fa-spinner.fa-spin
+        | &nbsp;{{::buttonVM.label}}
+        i(
+            class="button-ico {{::buttonVM.icon}}"
+            ng-if="buttonVM.icon"
+        )

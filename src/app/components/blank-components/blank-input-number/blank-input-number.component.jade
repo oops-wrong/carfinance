@@ -1,0 +1,50 @@
+.form-group(
+    ng-class="{'has-error': inputVM.hasError, 'group-on-focus': inputVM.isFocusedOn, 'group-with-pop': inputVM.isFocusedOn && inputVM.isOpenPop}"
+)
+    .row
+        .col-md-4
+            label.control-label(
+                for="{{::inputVM.name}}" 
+                ng-bind="inputVM.label"
+                ng-class="{'required-label': inputVM.required}"
+            )
+        .col-md-4
+            .input-group.input-group-money
+                span.input-group-addon(
+                    ng-class="{'addon-blue': inputVM.isHighlightedAddon || inputVM.isFocusedOn}"
+                    ng-if="inputVM.icon"
+                )
+                    i(class="{{::inputVM.icon}}")
+                input.form-control(
+                    id="{{::inputVM.name}}"
+                    name="{{::inputVM.name}}"
+                    ng-blur="inputVM.changeIsHighlightedAddon()"
+                    ng-class="{'border-blue-color': inputVM.isOpenPop}"
+                    ng-disabled="inputVM.disabled"
+                    ng-focus="inputVM.changeIsHighlightedAddon()"
+                    ng-max="inputVM.max"
+                    ng-min="inputVM.min"
+                    ng-model="inputVM.model"
+                    ng-required="inputVM.required"
+                    pattern="[0-9]*"
+                    step="{{::inputVM.step || 1}}"
+                    type="number"
+                )
+        .icon-with-popover(ng-if='!inputVM.hasError')
+            .icon(
+                ng-class="{'icon-info': inputVM.info.length > 1}"
+                ng-if="inputVM.info.length > 1"
+                ng-click="inputVM.changeIsOpenPop()"
+            )
+            p(
+                ng-if="inputVM.info.length > 1 && inputVM.isOpenPop"
+                ng-bind="inputVM.info"
+            )
+        validation-alert(
+            field="inputVM.field"
+            form="inputVM.form"
+            has-error="inputVM.hasError"
+            label="inputVM.label"
+            ng-max="inputVM.max"
+            ng-min="inputVM.min"
+        )

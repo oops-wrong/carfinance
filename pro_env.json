@@ -1,0 +1,7 @@
+{
+    "EMAIL_API": "'http://email-saiph.eu-west-2.elasticbeanstalk.com/error'",
+    "LEAD_API": "'http://leads.saiph.trafixiq.com/submit/car-finance'",
+    "INFO_API": "'http://leads.saiph.trafixiq.com/secure/leads/get-info'",
+    "NOTIFY_EMAIL": "'j.abbas@trafixiq.com'",
+    "ENV_NAME": "'Prod'"
+}

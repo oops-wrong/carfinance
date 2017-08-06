@@ -1,0 +1,62 @@
+.statistic-list {
+    background-color: rgb(212,211,211);
+}
+.statistic-list .container .statistic-list__item {
+    padding: 30px;
+    text-align: center;
+    color: rgb(55,55,55);
+}
+.statistic-list__item > .h1 {
+    font-weight: 800;
+}
+
+.stages {
+    background-color: rgb(238,238,238);
+    padding-top: 60px;
+    color: rgb(55,55,55);
+    border-bottom: solid rgb(211,211,211) 10px;
+}
+.stages .stages-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.stages .stages-header > .h1 {
+    color: rgb(28,177,183);
+    margin-bottom: 30px;
+}
+
+.stages .stages-list > div {
+    text-align: center;
+}
+.stages .stages-list__step {
+    padding: 30px;
+    max-width: 380px;
+    display: inline-block;
+    text-align: left;
+}
+.stages .stages-list__step .stages-list__step-header div{
+    display: inline-block;
+}
+.stages .stages-list__step .stages-list__step-header h3{
+    font-weight: 400;
+    color: rgb(0,37,148);
+}
+.stages .stages-list__step .stages-list__step-header h3:last-child{
+    font-weight: 600;
+    color: rgb(245,123,34);
+}
+.stages .stages-list__step .stages-list__step-header img {
+    margin-top: 3px;
+    vertical-align: baseline;
+    margin-right: 5px;
+    /*margin-right: 10px;*/
+}
+
+.row-with-apply {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.faq-link {
+    cursor: pointer;
+}

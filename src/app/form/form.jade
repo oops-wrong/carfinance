@@ -1,0 +1,491 @@
+.container-fluid.fs
+    .fs__bg(style="background-image: url(/assets/images/bg-form-1.png);")
+    .container
+        .row.align-items-center
+            .col.fs-text.fs-text--page.pb-4.pt-4
+                h1 You're on your way to a personalised quote!
+                ul
+                    li See how much you could save
+                    li Quick processing from beginning to end
+
+.form-page.pb-5
+    .container.grey-overlay(ng-class="{'grey-overlay--disable': formVM.isDelayed}")
+        .loader(ng-hide="formVM.isDelayed") Loading...
+
+        .dotted.hidden-lg-down
+
+        #form
+            /////////////////////////////////////////////////////////////
+            // FORM_STATE_1
+            /////////////////////////////////////////////////////////////
+            form-state(
+                animation-duration="formVM.formStateAnimationDuration"
+                data-title="Your Details"
+                description="We take security very seriously. Your details will remain secure."
+                edit-state="formVM.editState(0)"
+                form-state="formVM.formStates[0]"
+                id="formState0"
+                number="1"
+            )
+                form(
+                    name="formState1"
+                    ng-submit="formVM.submitStep1(formState1)"
+                    novalidate
+                )
+                    blank-radio(
+                        form="formState1"
+                        label="I want to finance a"
+                        model="formVM.form.vehicle_type"
+                        name="vehicle_type"
+                        required="false"
+                        values="formVM.fVehicleTypeOptions"
+                    )
+                    blank-input-number(
+                        form="formState1"
+                        icon="fa fa-gbp"
+                        info="Amount to borrow can be changed after submission"
+                        label="I would like to borrow"
+                        max="250000"
+                        min="500"
+                        model="formVM.form.product_amount"
+                        name="product_amount"
+                        required="true"
+                        step="500"
+                    )
+                    blank-input-number(
+                        form="formState1"
+                        label="Loan Duration (Years)"
+                        max="7"
+                        min="1"
+                        model="formVM.form.product_term"
+                        name="product_term"
+                        required="true"
+                    )
+                    blank-radio(
+                        form="formState1"
+                        label="Title"
+                        model="formVM.form.title"
+                        name="title"
+                        required="false"
+                        values="formVM.fTitleOptions"
+                    )
+                    blank-input(
+                        form="formState1"
+                        label="First name"
+                        model="formVM.form.f_name"
+                        name="f_name"
+                        required="true"
+                    )
+                    blank-input(
+                        form="formState1"
+                        label="Last name"
+                        model="formVM.form.l_name"
+                        name="l_name"
+                        required="true"
+                    )
+                    blank-input(
+                        form="formState1"
+                        label="Email"
+                        model="formVM.form.email_addr"
+                        name="email_addr"
+                        required="true"
+                        type="email"
+                    )
+                    blank-input(
+                        form="formState1"
+                        label="Phone number"
+                        model="formVM.form.phone_1"
+                        name="phone_1"
+                        required="true"
+                        pattern="formVM.phonePattern"
+                        pattern-name="phone"
+                    )
+                    blank-date-picker(
+                        defaultDate="1985-01-01"
+                        form="formState1"
+                        info="If you are aged 18 or over you can apply."
+                        label="Day of birth"
+                        model="formVM.form.dob"
+                        name="dob"
+                        required="true"
+                    )
+                    blank-select(
+                        form="formState1"
+                        info="This can help us to lookup your credit history."
+                        label="Marital status"
+                        model="formVM.form.marital_status"
+                        name="marital_status"
+                        options="formVM.fMaritalStatusOptions"
+                        required="true"
+                    )
+                    blank-select(
+                        form="formState1"
+                        label="Driving licence"
+                        model="formVM.form.driving_license_type"
+                        name="driving_license_type"
+                        options="formVM.fDrivingLicenseTypeOptions"
+                        required="true"
+                    )
+                    blank-button.mt-2.float-right(
+                        data-type="submit"
+                        extra-class="btn-green btn-form btn-angle"
+                        label="Next"
+                    )
+
+            /////////////////////////////////////////////////////////////
+            // FORM_STATE_2
+            /////////////////////////////////////////////////////////////
+            form-state(
+                animation-duration="formVM.formStateAnimationDuration"
+                data-title="Your Address"
+                description="Please provide your address details which will help us in making a quick decision."
+                edit-state="formVM.editState(1)"
+                form-state="formVM.formStates[1]"
+                id="formState1"
+                number="2"
+            )
+                form(
+                    name="formState2"
+                    ng-submit="formVM.submitStep2(formState2)"
+                    novalidate
+                )
+                    blank-select(
+                        form="formState2"
+                        label="Residential status"
+                        model="formVM.form.curr_residential_status"
+                        name="curr_residential_status"
+                        options="formVM.fResidentialStatusOptions"
+                        required="true"
+                    )
+                    blank-autocomplete(
+                        details="formVM.currentAddressDetails"
+                        form="formState2"
+                        label="Lookup Your Address"
+                        model="currentAddress"
+                        name="currentAddress"
+                        required="false"
+                    )
+                    blank-input(
+                        form="formState2"
+                        label="Building name / number"
+                        model="formVM.form.addr_line_2"
+                        name="addr_line_2"
+                        required="true"
+                    )
+                    blank-input(
+                        form="formState2"
+                        label="Street"
+                        model="formVM.form.addr_line_1"
+                        name="addr_line_1"
+                        required="true"
+                    )
+                    blank-input(
+                        form="formState2"
+                        label="Town"
+                        model="formVM.form.addr_town"
+                        name="addr_town"
+                        required="true"
+                    )
+                    blank-input(
+                        form="formState2"
+                        label="Postcode"
+                        model="formVM.form.addr_pcode"
+                        name="addr_pcode"
+                        pattern="formVM.postCodePattern"
+                        pattern-name="post code"
+                        required="true"
+                    )
+                    blank-select-double(
+                        change="formVM.changeTimeStay"
+                        form="formState2"
+                        info="Please supply your address history for the last 3 years."
+                        label="Time at Address"
+                        model1="formVM.form.curr_addr_yrs"
+                        model2="formVM.form.curr_addr_mon"
+                        name="curr_addr_yrs"
+                        options1="formVM.fYearOptions"
+                        options2="formVM.fMonthOptions"
+                        required="true"
+                    )
+
+                    div(
+                        ng-repeat="extraAddress in formVM.extraAddressRepeats"
+                    )
+                        h3.mt-2
+                            strong Tell us more
+                        p We need your address history for the last 3 years. Please tell us where you lived previously.
+
+                        blank-autocomplete(
+                            details="formVM.previousAddressDetails[extraAddress].details"
+                            form="formState2"
+                            label="My previous address was"
+                            model="prevAddress"
+                            name="prevAddress{{extraAddress}}"
+                            required="false"
+                        )
+                        blank-input(
+                            form="formState2"
+                            label="Building name / number"
+                            model="formVM.form.prev_addrs[extraAddress].prev_addr_line_2"
+                            name="prev_addr_line_2{{extraAddress}}"
+                            required="true"
+                        )
+                        blank-input(
+                            form="formState2"
+                            label="Building street"
+                            model="formVM.form.prev_addrs[extraAddress].prev_addr_line_1"
+                            name="prev_addr_line_1{{extraAddress}}"
+                            required="true"
+                        )
+                        blank-input(
+                            form="formState2"
+                            label="Town"
+                            model="formVM.form.prev_addrs[extraAddress].prev_addr_town"
+                            name="prev_addr_town{{extraAddress}}"
+                            required="true"
+                        )
+                        blank-input(
+                            form="formState2"
+                            label="Postcode"
+                            model="formVM.form.prev_addrs[extraAddress].prev_addr_pcode"
+                            name="prev_addr_pcode{{extraAddress}}"
+                            pattern="formVM.postCodePattern"
+                            pattern-name="post code"
+                            required="true"
+                        )
+                        blank-select-double(
+                            change="formVM.changeTimeStay"
+                            form="formState2"
+                            info="Please supply your address history for the last 3 years."
+                            label="Time of Stay"
+                            model1="formVM.form.prev_addrs[extraAddress].prev_addr_yrs"
+                            model2="formVM.form.prev_addrs[extraAddress].prev_addr_mon"
+                            name="prev_addr_yrs{{extraAddress}}"
+                            options1="formVM.fYearOptions"
+                            options2="formVM.fMonthOptions"
+                            required="true"
+                        )
+
+                    blank-button.mt-2.float-right(
+                        data-type="submit"
+                        extra-class="btn-green btn-form btn-angle"
+                        label="Next"
+                    )
+
+            /////////////////////////////////////////////////////////////
+            // FORM_STATE_3
+            /////////////////////////////////////////////////////////////
+            form-state(
+                animation-duration="formVM.formStateAnimationDuration"
+                data-title="Your Employment"
+                description="We take security very seriously. Your details will remain secure.<b> We will not contact your employer</b>."
+                edit-state="formVM.editState(2)"
+                form-state="formVM.formStates[2]"
+                id="formState2"
+                number="3"
+            )
+                form(
+                    name="formState3"
+                    ng-submit="formVM.submitStep3(formState3)"
+                    novalidate
+                )
+                    blank-select(
+                        form="formState3"
+                        label="Employment status"
+                        model="formVM.form.employment_status"
+                        name="employment_status"
+                        options="formVM.fEmploymentStatusOptions"
+                        required="true"
+                    )
+                    blank-input(
+                        form="formState3"
+                        label="Occupation"
+                        model="formVM.form.occupation"
+                        name="occupation"
+                        required="true"
+                    )
+                    blank-input(
+                        form="formState3"
+                        label="Monthly income"
+                        model="formVM.form.monthly_income"
+                        name="monthly_income"
+                        required="true"
+                        type="number"
+                    )
+                    blank-input(
+                        form="formState3"
+                        label="Employer's name"
+                        model="formVM.form.curr_empl_name"
+                        name="curr_empl_name"
+                        required="true"
+                    )
+                    blank-input(
+                        form="formState3"
+                        label="Building name / number"
+                        model="formVM.form.curr_empl_addr_2"
+                        name="curr_empl_addr_2"
+                        required="true"
+                    )
+                    blank-input(
+                        form="formState3"
+                        label="Street"
+                        model="formVM.form.curr_empl_addr_1"
+                        name="curr_empl_addr_1"
+                        required="true"
+                    )
+                    blank-input(
+                        form="formState3"
+                        label="Town"
+                        model="formVM.form.curr_empl_addr_town"
+                        name="curr_empl_addr_town"
+                        required="true"
+                    )
+                    blank-input(
+                        form="formState3"
+                        label="Postcode"
+                        model="formVM.form.curr_empl_addr_pcode"
+                        name="curr_empl_addr_pcode"
+                        pattern="formVM.postCodePattern"
+                        pattern-name="post code"
+                        required="true"
+                    )
+                    blank-select-double(
+                        change="formVM.changeTimeEmployment"
+                        form="formState3"
+                        info="Please supply your address history for the last 1 year."
+                        label="Time of employment"
+                        model1="formVM.form.curr_empl_yrs"
+                        model2="formVM.form.curr_empl_mon"
+                        name="curr_empl_yrs"
+                        options1="formVM.fYearOptions"
+                        options2="formVM.fMonthOptions"
+                        required="true"
+                    )
+
+                    div(
+                        ng-repeat="extraEmployment in formVM.extraEmploymentRepeats"
+                    )
+                        h3.mt-2
+                            strong Tell us more
+                        p We need your employment history for the last 1 year. Please tell us where you worked previously.
+
+                        blank-input(
+                            form="formState3"
+                            label="Employer's name"
+                            model="formVM.form.prev_empls[extraEmployment].prev_empl_name"
+                            name="prev_empl_name{{extraEmployment}}"
+                            required="true"
+                        )
+                        blank-input(
+                            form="formState3"
+                            label="Building name / number"
+                            model="formVM.form.prev_empls[extraEmployment].prev_empl_addr_line_2"
+                            name="prev_empl_addr_line_2{{extraEmployment}}"
+                            required="true"
+                        )
+                        blank-input(
+                            form="formState3"
+                            label="Building street"
+                            model="formVM.form.prev_empls[extraEmployment].prev_empl_addr_line_1"
+                            name="prev_empl_addr_line_1{{extraEmployment}}"
+                            required="true"
+                        )
+                        blank-input(
+                            form="formState3"
+                            label="Town"
+                            model="formVM.form.prev_empls[extraEmployment].prev_empl_addr_town"
+                            name="prev_empl_addr_town{{extraEmployment}}"
+                            required="true"
+                        )
+                        blank-input(
+                            form="formState3"
+                            label="Postcode"
+                            model="formVM.form.prev_empls[extraEmployment].prev_empl_addr_pcode"
+                            name="prev_empl_addr_pcode{{extraEmployment}}"
+                            pattern="formVM.postCodePattern"
+                            pattern-name="post code"
+                            required="true"
+                        )
+                        blank-select-double(
+                            change="formVM.changeTimeEmployment"
+                            form="formState3"
+                            info="Please supply your address history for the last 1 year."
+                            label="Time of employment"
+                            model1="formVM.form.prev_empls[extraEmployment].prev_empl_yrs"
+                            model2="formVM.form.prev_empls[extraEmployment].prev_empl_mon"
+                            name="prev_empl_yrs{{extraEmployment}}"
+                            options1="formVM.fYearOptions"
+                            options2="formVM.fMonthOptions"
+                            required="true"
+                        )
+
+                    blank-button.mt-2.float-right(
+                        data-type="submit"
+                        extra-class="btn-green btn-form btn-angle"
+                        label="Next"
+                    )
+
+            /////////////////////////////////////////////////////////////
+            // FORM_STATE_4
+            /////////////////////////////////////////////////////////////
+            form-state(
+                animation-duration="formVM.formStateAnimationDuration"
+                data-title="Last Step - You're almost there!"
+                description="Please complete this final step to finish your application."
+                edit-state="formVM.editState(3)"
+                form-state="formVM.formStates[3]"
+                id="formState3"
+                number="4"
+            )
+                form.pb-3(
+                    name="formState4"
+                    ng-submit="formVM.submitStep4(formState4)"
+                    novalidate
+                )
+                    blank-checkbox(
+                        form="formState4"
+                        label="From time to time we'd like to contact you with details of our other products and well as third party products we believe will be of interest. If you wish to be contacted about these products please tick this box."
+                        model="formVM.isAgreementWithSMS"
+                        name="isAgreementWithSMS"
+                        required="false"
+                    )
+                    blank-checkbox(
+                        form="formState4"
+                        label="Please tick the box to the right to indicate that you have provided accurate information and have read agree to our <a href='/terms#terms'>terms and conditions</a> and <a href='/terms#terms'>privacy policy</a>."
+                        model="formVM.isAgreementWithPolicy"
+                        name="isAgreementWithPolicy"
+                        required="true"
+                    )
+                    blank-button.mt-3.mb-3.float-right(
+                        data-type="submit"
+                        extra-class="btn-orange btn-form btn-angle"
+                        label="Apply now"
+                    )
+
+.stages.stages--form
+    .container
+        .row.stages-list
+            .col-lg-4.col-md-4
+                .stages-list__step
+                    .stages-list__step-header
+                        div
+                            img(src="/assets/images/ico-tap.png" width="45" height="60")
+                        div
+                            h3 Apply Online
+                            h3 Step 1
+            .col-lg-4.col-md-4
+                .stages-list__step
+                    .stages-list__step-header
+                        div
+                            img(src="/assets/images/ico-speedometer.png" width="60" height="60")
+                        div
+                            h3 Buy any Car
+                            h3 Step 2
+            .col-lg-4.col-md-4.stages-list__last-step
+                .stages-list__step
+                    .stages-list__step-header
+                        div
+                            img(src="/assets/images/ico-key.png" width="45" height="60")
+                        div
+                            h3 Sign & Collect
+                            h3 Step 3

@@ -1,0 +1,23 @@
+.form-group(
+    ng-class="{'has-error': checkboxVM.hasError, 'group-on-focus': checkboxVM.isFocusedOn, 'group-with-pop': checkboxVM.isFocusedOn && checkboxVM.isOpenPop}"
+    style="z-index: 0;"
+)
+    .row
+        .col
+            .checkbox
+                label.control-label
+                    input(
+                        id="{{::checkboxVM.name}}",
+                        name="{{::checkboxVM.name}}",
+                        ng-model="checkboxVM.model",
+                        ng-required="checkboxVM.required",
+                        type="checkbox"
+                    )
+                    span
+                    span(ng-bind-html="checkboxVM.label")
+        validation-alert.full-height-validation(
+            field="checkboxVM.field",
+            form="checkboxVM.form",
+            has-error="checkboxVM.hasError",
+            label="checkboxVM.label"
+        )

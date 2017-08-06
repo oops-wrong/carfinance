@@ -1,0 +1,89 @@
+input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+
+    /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+
+    /*required for proper track sizing in FF*/
+    width: 100%;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    background: rgb(206, 223, 94);
+    border-radius: 3px;
+    border: none;
+    height: 8px;
+    width: 100%;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: rgb(35, 67, 158);
+    border-radius: 50%;
+    border: none;
+    height: 22px;
+    margin-top: -7px;
+    width: 22px;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: rgb(206, 223, 94); /* active */
+}
+
+input[type=range]::-moz-range-track {
+    background: rgb(206, 223, 94);
+    border-radius: 3px;
+    border: none;
+    height: 8px;
+    width: 100%;
+}
+input[type=range]::-moz-range-thumb {
+    background: rgb(35, 67, 158);
+    border-radius: 50%;
+    border: none;
+    height: 22px;
+    width: 22px;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline-offset: -1px;
+    outline: 1px solid white;
+}
+
+input[type=range]::-ms-track {
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+
+    /*remove default tick marks*/
+    color: transparent;
+
+    height: 8px;
+    width: 100%;
+}
+input[type=range]::-ms-fill-lower {
+    background: rgb(206, 223, 94); /* active */
+    border-radius: 10px;
+}
+input[type=range]::-ms-fill-upper {
+    background: rgb(206, 223, 94);
+    border-radius: 10px;
+}
+input[type=range]::-ms-thumb {
+    background: rgb(35, 67, 158);
+    border-radius: 50%;
+    border: none;
+    height: 22px;
+    width: 22px;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: rgb(206, 223, 94); /* active */
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: rgb(206, 223, 94);
+}

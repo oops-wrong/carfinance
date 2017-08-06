@@ -1,0 +1,23 @@
+.row.form-state
+    .col-1.hidden-lg-down
+        .form-state__step.complete-point.text-center
+            strong(ng-bind="formStateVM.number")
+    .col-xl-8.form-state__text
+        blank-button.float-right.ml-3.mb-1.mt-lg-2(
+            data-type="button"
+            extra-class="btn-grey btn-form btn-narrow"
+            icon="fa fa-pencil"
+            label="Edit"
+            ng-click="formStateVM.editState()"
+            ng-if="formStateVM.formState.isEditable"
+        )
+        h3
+            strong(ng-bind-html="formStateVM.title")
+        p(ng-bind-html="formStateVM.description")
+    .col-xl-8.offset-xl-1.form-state__fields(
+        duration="{{formStateVM.animationDuration / 1000}}"
+        ng-slide-down="formStateVM.formState.isActive"
+    )
+        ng-transclude.clearfix(
+            ng-if="formStateVM.isDelayed"
+        )

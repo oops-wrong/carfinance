@@ -1,0 +1,254 @@
+<div class="container-fluid fs">
+  <div class="fs__bg" style="background-image: url(/assets/images/bg-1.png);"></div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8 fs-text pb-4 pt-4">
+        <h1>Exclusive Low Rates on Car Finance</h1>
+        <p>Get access the UK’s best vehicle finance providers offering hundreds of different loan products to suit your specific
+          circumstances
+        </p>
+        <ul>
+          <li>Buy Any New or Used Vehicles</li>
+          <li>Get Your Decisions in Minutes</li>
+          <li>No Deposit Required</li>
+        </ul>
+        <a ui-sref="main.form" class="btn btn-big btn-blue btn-arrow text-uppercase">Apply now</a>
+      </div>
+      <div class="col-lg-4">
+        <div class="fs__mini-form mini-form">
+          <div class="mini-form__header container">
+            <div class="row h-100">
+              <div class="col d-flex justify-content-center align-items-center">
+                <span>Get Your Quote</span>
+              </div>
+            </div>
+          </div>
+          <div class="mini-form__body container">
+            <div class="row h-100 pb-4 pt-2">
+              <div class="col d-flex flex-column justify-content-between">
+                <div class="mini-form__item">
+                  <div class="mini-form__label">I want to finance a:</div>
+                  <div class="finance-select d-flex justify-content-between">
+                    <div class="finance-select__btn check-btn">
+                      <input type="radio" id="finance1" name="finance" value="{{faceVM.FVehicleType.CAR}}" ng-model="faceVM.miniForm.vehicle_type">
+                      <label for="finance1">
+                        <i class="finance-select__ico ico ico-car"></i>
+                        <span>Car</span>
+                      </label>
+                    </div>
+                    <div class="finance-select__btn check-btn">
+                      <input type="radio" id="finance2" name="finance" value="{{faceVM.FVehicleType.VAN}}" ng-model="faceVM.miniForm.vehicle_type">
+                      <label for="finance2">
+                        <i class="finance-select__ico ico ico-van"></i>
+                        <span>Van</span>
+                      </label>
+                    </div>
+                    <div class="finance-select__btn check-btn">
+                      <input type="radio" id="finance3" name="finance" value="{{faceVM.FVehicleType.MOTORBIKE}}" ng-model="faceVM.miniForm.vehicle_type">
+                      <label for="finance3">
+                        <i class="finance-select__ico ico ico-bike"></i>
+                        <span>Bike</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="mini-form__item">
+                  <label class="mini-form__label" for="mini-form-amount">Amount to borrow:</label>
+                  <div class="colored-form-group mb-2">
+                    <blank-button-number class="d-flex hidden-xs-down" icon="fa fa-minus" max="250000" min="500" model="faceVM.miniForm.product_amount"
+                      step="-500"></blank-button-number>
+                    <i class="fa fa-gbp ico-pound c-dark-blue colored-form-group__ico" aria-hidden="true"></i>
+                    <div class="colored-form-group__input w-100">
+                      <input type="text" class="form-control form-control-light h-100" id="mini-form-amount" ng-model="faceVM.miniForm.product_amount">
+                    </div>
+                    <blank-button-number class="d-flex hidden-xs-down" icon="fa fa-plus" max="250000" min="500" model="faceVM.miniForm.product_amount"
+                      step="500"></blank-button-number>
+                  </div>
+                  <div class="form-group">
+                    <input type="range" class="form-control form-slider" min="500" max="250000" step="500" ng-model="faceVM.miniForm.product_amount">
+                  </div>
+                </div>
+
+                <div class="mini-form__item">
+                  <label class="mini-form__label">To pay back over:</label>
+                  <div class="colored-form-group justify-content-between">
+                    <blank-button-number class="d-flex" icon="fa fa-minus" max="7" min="1" model="faceVM.miniForm.product_term" step="-1"></blank-button-number>
+                    <span class="colored-form-group__header">{{faceVM.miniForm.product_term}} year<span ng-if="faceVM.miniForm.product_term != 1">s</span></span>
+                    <blank-button-number class="d-flex" icon="fa fa-plus" max="7" min="1" model="faceVM.miniForm.product_term" step="1"></blank-button-number>
+                  </div>
+                </div>
+                <button class="btn btn-orange btn-arrow btn-rounder btn-double d-block mx-auto" ng-click="faceVM.miniFormSubmit()">Calculate my loan</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fs__disclaimer">Representative example: Good Credit - If you borrow £7,500 over 4 years at a representative 9.2% APR you would pay £186.05 per month. Total charge for credit will be £1,430.17. Total amount repayable is £8,930.17</div>
+    </div>
+  </div>
+</div>
+<!-- .fs -->
+<div class="statistic-list">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="statistic-list__item">
+          <div class="h1">£30m+</div>
+          <span>Loans requested each month</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="statistic-list__item">
+          <div class="h1">4,000</div>
+          <span>Applications processed each month</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="statistic-list__item">
+          <div class="h1">100s</div>
+          <span>Of lenders available</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="howitworks" class="stages">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="stages-header">
+          <div class="h1">
+            How it works
+          </div>
+          <span>Let our vehicle financing experts help you find the right deal for you...</span>
+        </div>
+      </div>
+    </div>
+    <div class="row stages-list">
+      <div class="col-lg-4 col-md-6">
+        <div class="stages-list__step">
+          <div class="stages-list__step-header">
+            <div>
+              <img src="/assets/images/ico-tap.png" width="45" height="60">
+            </div>
+            <div>
+              <h3>Apply Online</h3>
+              <h3>Step 1</h3>
+            </div>
+          </div>
+          <div class="stages-list__step-body">
+            <span>
+              Complete our quick form - it'll take just a minute!
+              A decision regarding your application will be made within an hour by one of your providers.
+              You'll be informed by email or as to whether you've been accepted.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="stages-list__step">
+          <div class="stages-list__step-header">
+            <div>
+              <img src="/assets/images/ico-speedometer.png" width="60" height="60">
+            </div>
+            <div>
+              <h3>Buy any Car</h3>
+              <h3>Step 2</h3>
+            </div>
+          </div>
+          <div class="stages-list__step-body">
+            <span>
+              Buy any car from any reputable UK dealership.
+              Once accepted, your application will be assigned a dedicated advisor who
+              will discuss your budget and how much you can borrow.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="stages-list__step">
+          <div class="stages-list__step-header">
+            <div>
+              <img src="/assets/images/ico-key.png" width="45" height="60">
+            </div>
+            <div>
+              <h3>Sign & Collect</h3>
+              <h3>Step 3</h3>
+            </div>
+          </div>
+          <div class="stages-list__step-body">
+            <span>
+              Once you’re happy with your no obligation quote,
+              inform your advisor of the vehicle’s details.
+              Your advisor will sort out the rest.
+              Sign the documentation and then you are free to collect and enjoy your new vehicle!
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row row-with-apply">
+      <div class="col-lg-12">
+        <a ui-sref="main.form" class="btn btn-orange btn-arrow btn-rounder">Apply Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="faqs" class="stages">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="stages-header">
+          <div class="h1">
+            Frequently Asked Questions
+          </div>
+          <div class="container ">
+            <div class="panel-group" id="faqAccordion" role="tablist" aria-multiselectable="true">
+              <faq
+                  answer="<p>No, you don’t. If you apply before finding a car, you can get an idea of what your budget is and shop for a car accordingly. If you have found a vehicle, we just ask for you to let your advisor know.</p>"
+                  collapse-id="collapseOne"
+                  heading-id="headingOne"
+                  parent-node="#accordion"
+                  question="1. Do I have to choose my car before I apply ?"
+              ></faq>
+              <faq
+                  answer="<p>You can choose a car from any reputable dealership in the UK.</p><p>Once approved, we’ll ask you to let your finance advisor know the details of the car you’d like to finance so that we can carry out all the necessary vehicle and dealer checks for you.</p>"
+                  collapse-id="collapseTwo"
+                  heading-id="headingTwo"
+                  parent-node="#accordion"
+                  question="2. Where can I buy a car from ?"
+              ></faq>
+              <faq
+                  answer="<p>In the vast majority of cases, a deposit isn’t required when purchasing a car. There are rare occasions whereby the lender may well ask for a deposit to strengthen your application, but one of our advisors will let you know straightaway if this is the case.</p>"
+                  collapse-id="collapseThree"
+                  heading-id="headingThree"
+                  parent-node="#accordion"
+                  question="3. Do I need a deposit ?"
+              ></faq>
+              <faq
+                  answer="<p>We work with a large number of lenders, many of whom specialise in providing finance to those with poor credit, so there is a good chance that we can get you accepted for finance, although we cannot guarantee you’ll be approved</p>"
+                  collapse-id="collapseFour"
+                  heading-id="headingFour"
+                  parent-node="#accordion"
+                  question="4. Can You Help With Bad Credit ?"
+              ></faq>
+              <faq
+                  answer="<p>We are able to provide finance to those aged 18 and over.</p>"
+                  collapse-id="collapseFive"
+                  heading-id="headingFive"
+                  parent-node="#accordion"
+                  question="5. Is There An Age Restriction ?"
+              ></faq>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row row-with-apply">
+      <div class="col-lg-12">
+        <a ui-sref="main.form" class="btn btn-orange btn-arrow btn-rounder">Apply Now</a>
+      </div>
+    </div>
+  </div>
+</div>

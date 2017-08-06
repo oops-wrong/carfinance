@@ -1,0 +1,59 @@
+.thanks-message {
+    background-color: rgb(212,211,211);
+    padding: 20px 0 50px;
+}
+
+.thanks-message__header {
+    padding-top: 15px !important;
+}
+
+.complete-point i {
+    background: url(/assets/images/ico-check-mark-green.svg) no-repeat;
+    background-size: contain;
+    content: '';
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    left: 28%;
+    top: 30%;
+}
+
+.complete-point {
+    width: 70px;
+    height: 70px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto 15px;
+    line-height: 70px;
+}
+
+.thanks-message__text-block {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.thanks-message__text-block p {
+    margin-bottom: 0;
+}
+
+.tb2 p:first-child {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.tb2 p:last-child {
+    padding-bottom: 25px;
+}
+
+.thanks-message img {
+    display: block;
+    margin: 40px auto;
+    max-width: 100%;
+}
+
+.thanks-message__info-btn {
+    color: #089CCF;
+    margin: 0 auto 30px;
+}

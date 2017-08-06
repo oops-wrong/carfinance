@@ -1,0 +1,8 @@
+div(
+    ng-if="faceVM.templateUrl"
+    ng-include="faceVM.templateUrl"
+)
+div(
+    ng-if="!faceVM.templateUrl"
+)
+    h2 Unknown address

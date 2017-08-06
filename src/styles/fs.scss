@@ -1,0 +1,93 @@
+.fs__bg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+.fs__bg:after {
+    background-color: rgba(0,0,0,.6);
+    bottom: 0;
+    content: '';
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+.fs__disclaimer {
+    text-align: center;
+    color: #fff;
+    font-size: 0.9rem;    
+}
+.fs__disclaimer .home {
+    font-size: 1.1rem;
+}
+.fs-text {
+    color: #fff;
+    font-size: 1.2rem;
+}
+.fs-text.fs-text--page {
+    font-size: 1.1rem;
+}
+.fs-text h1 {
+    font-size: 2.9rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+.fs-text.fs-text--page h1 {
+    font-size: 2.2rem;
+}
+
+.fs-text ul {
+    padding-left: 3.8rem;
+}
+.fs-text ul li {
+    list-style: none;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    position: relative;
+}
+.fs-text.fs-text--page ul li:last-child {
+    margin-bottom: 0;
+}
+.fs-text ul li:before {
+    background: url(/assets/images/ico-check-mark.svg) no-repeat;
+    background-size: contain;
+    content: '';
+    height: 1.4em;
+    left: -2.8em;
+    position: absolute;
+    top: 0.1em;
+    width: 1.9em;
+}
+.fs-text.fs-text--page ul li:before {
+    background-image: url(/assets/images/ico-check-mark-green.svg);
+}
+@media screen and (max-width: 991px) {
+    .fs-text:not(.fs-text--page) {
+        * {
+            display: none;
+        }
+        h1 {
+            display: block;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.fs__mini-form {
+    margin-bottom: 60px;
+    margin-top: 50px;
+}
+@media screen and (max-width: 991px) {
+    .fs__mini-form {
+        margin-bottom: 45px;
+        margin-top: 15px;
+    }
+}

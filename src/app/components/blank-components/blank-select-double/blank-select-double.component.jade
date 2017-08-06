@@ -1,0 +1,60 @@
+.form-group(
+    ng-class="{'has-error': selectVM.hasError, 'group-on-focus': selectVM.isFocusedOn, 'group-with-pop': selectVM.isFocusedOn && selectVM.isOpenPop}"
+)
+    .row
+        .col-md-4
+            label.control-label(
+                ng-bind="selectVM.label"
+                ng-class="{'required-label': selectVM.required}"
+            )
+        .col-6.col-md-2.mb-3.mb-md-0
+            .select-wrapper
+                select.form-control.custom-select-arrow(
+                    blank-zero="selectVM.model2"
+                    name="{{::selectVM.name}}"
+                    ng-disabled="selectVM.disabled"
+                    ng-model="selectVM.model1"
+                    ng-required="selectVM.required"
+                    ng-class="{'border-blue-color': selectVM.isFocusedOn}"
+                    ng-change="selectVM.change(selectVM.model1)"
+                )
+                    option(value="" selected="true" disabled="disabled") Years
+                    option(
+                        ng-repeat="option in selectVM.options1 | orderBy: selectVM.order:selectVM.reverse"
+                        value="{{::option.value}}"
+                        ng-bind="option.displayName"
+                    )
+        .col-6.col-md-2
+            .select-wrapper
+                select.form-control.custom-select-arrow(
+                    name="{{::selectVM.name + '2'}}"
+                    ng-disabled="selectVM.disabled"
+                    ng-model="selectVM.model2"
+                    ng-required="selectVM.required"
+                    ng-class="{'border-blue-color': selectVM.isFocusedOn}"
+                    ng-change="selectVM.change(selectVM.model2)"
+                )
+                    option(value="" selected="true" disabled="disabled") Months
+                    option(
+                        ng-repeat="option in selectVM.options2 | orderBy: selectVM.order:selectVM.reverse"
+                        value="{{::option.value}}"
+                        ng-bind="option.displayName"
+                    )
+
+        .icon-with-popover(ng-if='!selectVM.hasError')
+            .icon(
+                ng-class="{'icon-info': selectVM.info.length > 1}"
+                ng-if="selectVM.info.length > 1"
+                ng-click="selectVM.changeIsOpenPop()"
+            )
+            p(
+                ng-if="selectVM.info.length > 1 && selectVM.isOpenPop"
+                ng-bind="selectVM.info"
+            )
+        validation-alert(
+            field="selectVM.field"
+            form="selectVM.form"
+            has-error="selectVM.hasError"
+            label="selectVM.label"
+            maxlength="selectVM.maxlength"
+        )

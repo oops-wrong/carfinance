@@ -1,0 +1,40 @@
+.form-group(
+    ng-class="{'has-error': inputVM.hasError, 'group-on-focus': inputVM.isFocusedOn, 'group-with-pop': inputVM.isFocusedOn && inputVM.isOpenPop}"
+)
+    .row
+        .col-md-4
+            label.control-label(
+                for="{{::inputVM.name}}"
+                ng-bind="inputVM.label" 
+                ng-class="{'required-label': inputVM.required}"
+            )
+        .col-md-4(ng-if="inputVM.type")
+            input.form-control(
+                id="{{::inputVM.name}}"
+                name="{{::inputVM.name}}"
+                ng-blur="inputVM.changeOnFocus()"
+                ng-class="{'border-blue-color': inputVM.isOpenPop}"
+                ng-disabled="inputVM.disabled"
+                ng-focus="inputVM.changeOnFocus()"
+                ng-model="inputVM.model"
+                ng-pattern="inputVM.pattern"
+                ng-required="inputVM.required"
+                type="{{::inputVM.type}}"
+            )
+        .icon-with-popover(ng-if='!inputVM.hasError')
+            .icon(
+                ng-class="{'icon-info': inputVM.info.length > 1}"
+                ng-if="inputVM.info.length > 1"
+                ng-click="inputVM.changeIsOpenPop()"
+            )
+            p(
+                ng-if="inputVM.info.length > 1 && inputVM.isOpenPop"
+                ng-bind="inputVM.info"
+            )
+        validation-alert(
+            field="inputVM.field"
+            form="inputVM.form"
+            has-error="inputVM.hasError"
+            label="inputVM.label"
+            pattern-name="inputVM.patternName"
+        )

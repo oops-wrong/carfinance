@@ -1,0 +1,40 @@
+.form-group.blank-radio(
+    ng-class="{'has-error': radioVM.hasError, 'group-on-focus': radioVM.isFocusedOn, 'group-with-pop': radioVM.isFocusedOn && radioVM.isOpenPop}"
+)
+    .row
+        .col-md-4
+            label.control-label(
+                ng-bind="radioVM.label"
+                ng-class="{'required-label': radioVM.required}"
+            )
+        .col-md-8.d-flex
+            .check-btn(ng-repeat="option in radioVM.values" tabindex="0")
+                input(
+                    id="{{::radioVM.name + $index}}"
+                    name="{{::radioVM.name}}"
+                    ng-model="radioVM.model"
+                    ng-required="radioVM.required"
+                    type="radio"
+                    value="{{::option.value}}"
+                )
+                label(for='{{::radioVM.name + $index}}')
+                    span(ng-if="option.icon")
+                        i(class="blank-radio__icon {{::option.icon}}")
+                        | &#x20;
+                    span(ng-bind="::option.displayName")
+        .icon-with-popover(ng-if='!radioVM.hasError')
+            .icon(
+                ng-class="{'icon-info': radioVM.info.length > 1}"
+                ng-if="radioVM.info.length > 1"
+                ng-click="radioVM.changeIsOpenPop()"
+            )
+            p(
+                ng-if="radioVM.info.length > 1 && radioVM.isOpenPop"
+                ng-bind="radioVM.info"
+            )
+        validation-alert(
+            field="radioVM.field"
+            form="radioVM.form"
+            has-error="radioVM.hasError"
+            label="radioVM.label"
+        )
